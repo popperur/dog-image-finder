@@ -1,0 +1,80 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DogTail component > matches the snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 24.5px;
+  height: 114px;
+  background-color: #ff9a29;
+}
+
+.c1 {
+  position: absolute;
+}
+
+.c4 {
+  top: -38px;
+  left: -28px;
+  width: 12px;
+  height: 70px;
+  border-radius: 0 32px 0 0;
+  border: 22px solid transparent;
+  border-right-color: #ff9a29;
+  transform: skew(0deg) rotate(-1deg) rotatey(1deg) skewy(-26deg);
+}
+
+.c3 {
+  top: -23px;
+  left: -27px;
+  width: 14px;
+  height: 9px;
+  border-radius: 1000px;
+  border: 12px solid transparent;
+  border-right-color: #ff9a29;
+  transform: skew(-7deg) rotate(-74deg) rotatey(1deg) skewy(-2deg) scale(2);
+  animation: dPwbxO 150ms linear infinite;
+}
+
+.c2 {
+  top: -34px;
+  left: -15px;
+  width: 0;
+  height: 14px;
+  border-radius: 0 32px 0 0;
+  border: 15px solid transparent;
+  border-right-color: #ff9a29;
+}
+
+.c5 {
+  top: -43px;
+  left: -27px;
+  width: 20px;
+  height: 24px;
+  background-color: #f1f1f2;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  transform: skew(-2deg) rotate(-12deg);
+  animation: hvbQKD 150ms linear infinite;
+}
+
+<div
+    class="c0"
+  >
+    <div
+      class="c1 c2"
+    />
+    <div
+      class="c1 c3"
+    />
+    <div
+      class="c1 c4"
+    />
+    <div
+      class="c1 c5"
+    />
+  </div>
+</DocumentFragment>
+`;

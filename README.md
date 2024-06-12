@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# Dog Image Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Have you ever wondered what a "Kuvasz" looks like? If so, this app is perfect for you! Additionally, it's my opportunity to demonstrate my frontend development skills.
 
-Currently, two official plugins are available:
+This app uses the internet's biggest collection of open source dog images from https://dog.ceo/ . Enjoy!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Demo
 
-## Expanding the ESLint configuration
+TODO MARK
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Getting Started
 
-- Configure the top-level `parserOptions` property like this:
+0. Make sure to have at least Node 18.19.0 
+1. `npm install`
+2. `npm start`
+3. Open http://localhost:5173/
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## How to run tests
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+`npm test`
+
+## Development Hints
+
+`npm run lint` to lint
+
+`npm run prettier` to format the code
+
+## Tech Stack
+
+- React 18.3
+- Typescript 5.2
+- Vite 5.2
+- Ant Design 5.17
+- styled-components 6.1
+- Vitest 1.6 and Testing Library 16.0

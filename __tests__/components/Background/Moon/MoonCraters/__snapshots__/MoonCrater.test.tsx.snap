@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MoonCrater component > matches the snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  position: absolute;
+  background-color: #cadad6;
+  border-radius: 50%;
+  top: 10px;
+  left: 20px;
+  width: 40px;
+  height: 60px;
+  opacity: 0.5;
+}
+
+<div
+    class="c0"
+  />
+</DocumentFragment>
+`;

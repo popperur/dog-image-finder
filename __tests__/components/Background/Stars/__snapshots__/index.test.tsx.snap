@@ -1,0 +1,319 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Stars component > matches the snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 42%;
+}
+
+.c1 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 45%;
+  left: 66%;
+  width: 6px;
+  height: 6px;
+  animation-delay: 2s;
+}
+
+.c2 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 70%;
+  left: 48%;
+  width: 5px;
+  height: 5px;
+  animation-delay: 4s;
+}
+
+.c3 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 4%;
+  left: 44%;
+  width: 3px;
+  height: 3px;
+  animation-delay: 1s;
+}
+
+.c4 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 23%;
+  left: 53%;
+  width: 1px;
+  height: 1px;
+  animation-delay: 2s;
+}
+
+.c5 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 26%;
+  left: 93%;
+  width: 3px;
+  height: 3px;
+  animation-delay: 1.3s;
+}
+
+.c6 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 46%;
+  left: 13%;
+  width: 4px;
+  height: 4px;
+  animation-delay: 2.3s;
+}
+
+.c7 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 66%;
+  left: 34%;
+  width: 2px;
+  height: 2px;
+  animation-delay: 1.3s;
+}
+
+.c8 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 36%;
+  left: 3%;
+  width: 3px;
+  height: 3px;
+  animation-delay: 3.3s;
+}
+
+.c9 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 76%;
+  left: 54%;
+  width: 1px;
+  height: 1px;
+  animation-delay: 2.3s;
+}
+
+.c10 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 56%;
+  left: 24%;
+  width: 3px;
+  height: 3px;
+  animation-delay: 1.3s;
+}
+
+.c11 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 76%;
+  left: 25%;
+  width: 3px;
+  height: 3px;
+  animation-delay: 0.3s;
+}
+
+.c12 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 56%;
+  left: 55%;
+  width: 1px;
+  height: 1px;
+  animation-delay: 2.31s;
+}
+
+.c13 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 36%;
+  left: 35%;
+  width: 3px;
+  height: 3px;
+  animation-delay: 1.31s;
+}
+
+.c14 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 86%;
+  left: 45%;
+  width: 2px;
+  height: 2px;
+  animation-delay: 2.31s;
+}
+
+.c15 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 82%;
+  left: 85%;
+  width: 3px;
+  height: 3px;
+  animation-delay: 0.31s;
+}
+
+.c16 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 81%;
+  left: 15%;
+  width: 1px;
+  height: 1px;
+  animation-delay: 1.31s;
+}
+
+.c17 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 83%;
+  left: 35%;
+  width: 3px;
+  height: 3px;
+  animation-delay: 2.31s;
+}
+
+.c18 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 23%;
+  left: 55%;
+  width: 2px;
+  height: 2px;
+  animation-delay: 4s;
+}
+
+.c19 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 53%;
+  left: 50%;
+  width: 1px;
+  height: 1px;
+  animation-delay: 1.31s;
+}
+
+.c20 {
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 50%;
+  animation: cQDEr 2s ease-in-out infinite;
+  top: 83%;
+  left: 20%;
+  width: 1px;
+  height: 1px;
+  animation-delay: 1.51s;
+}
+
+<div
+    class="c0"
+  >
+    <div
+      class="c1"
+    />
+    <div
+      class="c2"
+    />
+    <div
+      class="c3"
+    />
+    <div
+      class="c4"
+    />
+    <div
+      class="c5"
+    />
+    <div
+      class="c6"
+    />
+    <div
+      class="c7"
+    />
+    <div
+      class="c8"
+    />
+    <div
+      class="c9"
+    />
+    <div
+      class="c10"
+    />
+    <div
+      class="c11"
+    />
+    <div
+      class="c12"
+    />
+    <div
+      class="c13"
+    />
+    <div
+      class="c14"
+    />
+    <div
+      class="c15"
+    />
+    <div
+      class="c16"
+    />
+    <div
+      class="c17"
+    />
+    <div
+      class="c18"
+    />
+    <div
+      class="c19"
+    />
+    <div
+      class="c20"
+    />
+  </div>
+</DocumentFragment>
+`;

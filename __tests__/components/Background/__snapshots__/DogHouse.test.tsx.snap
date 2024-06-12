@@ -1,0 +1,107 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DogHouse component > matches the snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  position: absolute;
+  bottom: 0;
+  left: 27%;
+  width: 344px;
+  height: 271px;
+  z-index: 90;
+}
+
+.c6 {
+  position: absolute;
+  top: 0;
+  left: -16px;
+  width: 253px;
+  height: 141px;
+  background-color: #1e4857;
+  transform: skew(-33deg);
+  border-right: 8px solid #4d4a55;
+  border-bottom: 8px solid #4d4a55;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.c1 {
+  position: absolute;
+  top: 0;
+  left: 37px;
+  width: 292px;
+  height: 140px;
+  background-color: #1a3140;
+  transform: skew(30deg);
+  border-top-left-radius: 100%;
+  border-top-right-radius: 12px;
+  border-right: 8px solid #4d4a55;
+  border-top: 8px solid #4d4a55;
+}
+
+.c2 {
+  position: absolute;
+  top: 0;
+  left: 32px;
+  width: 240px;
+  height: 140px;
+  background-color: #8c2c1f;
+  transform: skew(0deg);
+  border-bottom-right-radius: 16px;
+}
+
+.c3 {
+  position: absolute;
+  bottom: 0;
+  width: 180px;
+  height: 83%;
+  background-color: #622224;
+  border-top-left-radius: 5px;
+}
+
+.c4 {
+  position: absolute;
+  bottom: 0;
+  right: -1px;
+  width: 165px;
+  height: 49%;
+  background-color: #8c2c1f;
+}
+
+.c5 {
+  position: absolute;
+  top: 6%;
+  left: 25px;
+  height: 81%;
+  width: 70%;
+  background-color: #642220;
+  border-radius: 50%;
+  box-shadow: -14px 0 0 #5e2c2d inset;
+}
+
+<div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      />
+    </div>
+    <div
+      class="c3"
+    />
+    <div
+      class="c4"
+    >
+      <div
+        class="c5"
+      />
+    </div>
+    <div
+      class="c6"
+    />
+  </div>
+</DocumentFragment>
+`;

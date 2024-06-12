@@ -1,0 +1,267 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Moon component > matches the snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  position: absolute;
+  top: 5%;
+  right: -7%;
+  width: 310px;
+  height: 330px;
+  opacity: 1;
+}
+
+.c3 {
+  position: absolute;
+  left: 80px;
+  top: 70px;
+  width: 160px;
+  height: 160px;
+  background-color: #d2e8e6;
+  border-radius: 50%;
+}
+
+.c4 {
+  position: absolute;
+  background-color: #cadad6;
+  border-radius: 50%;
+  top: 23px;
+  left: 33px;
+  width: 17px;
+  height: 17px;
+  opacity: 0.5;
+}
+
+.c5 {
+  position: absolute;
+  background-color: #cadad6;
+  border-radius: 50%;
+  top: 48px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  opacity: 0.7;
+}
+
+.c6 {
+  position: absolute;
+  background-color: #cadad6;
+  border-radius: 50%;
+  top: 90px;
+  left: 14px;
+  width: 20px;
+  height: 20px;
+  opacity: 0.4;
+}
+
+.c7 {
+  position: absolute;
+  background-color: #cadad6;
+  border-radius: 50%;
+  top: 18px;
+  left: 63px;
+  width: 25px;
+  height: 25px;
+  opacity: 0.6;
+}
+
+.c8 {
+  position: absolute;
+  background-color: #cadad6;
+  border-radius: 50%;
+  top: 33px;
+  left: 105px;
+  width: 10px;
+  height: 10px;
+  opacity: 0.8;
+}
+
+.c9 {
+  position: absolute;
+  background-color: #cadad6;
+  border-radius: 50%;
+  top: 82px;
+  left: 55px;
+  width: 14px;
+  height: 14px;
+  opacity: 0.9;
+}
+
+.c10 {
+  position: absolute;
+  background-color: #cadad6;
+  border-radius: 50%;
+  top: 122px;
+  left: 34px;
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+}
+
+.c11 {
+  position: absolute;
+  background-color: #cadad6;
+  border-radius: 50%;
+  top: 102px;
+  left: 84px;
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+}
+
+.c12 {
+  position: absolute;
+  background-color: #cadad6;
+  border-radius: 50%;
+  top: 63px;
+  left: 113px;
+  width: 20px;
+  height: 20px;
+  opacity: 0.9;
+}
+
+.c13 {
+  position: absolute;
+  background-color: #cadad6;
+  border-radius: 50%;
+  top: 116px;
+  left: 119px;
+  width: 12px;
+  height: 12px;
+  opacity: 0.6;
+}
+
+.c14 {
+  position: relative;
+  top: 54px;
+  left: 17px;
+  color: #888;
+}
+
+.c15 {
+  cursor: pointer;
+  width: 20px;
+  animation: jDLGYP 2s infinite;
+}
+
+.c1 {
+  position: absolute;
+  background-color: #f1f1f1;
+  border-radius: 50%;
+  opacity: 0.1;
+  transition: opacity 0.3s;
+  animation: xvTUm infinite;
+  top: 20px;
+  left: 30px;
+  width: 260px;
+  height: 260px;
+  animation-duration: 3s;
+  animation-delay: 0s;
+}
+
+.c2 {
+  position: absolute;
+  background-color: #f1f1f1;
+  border-radius: 50%;
+  opacity: 0.1;
+  transition: opacity 0.3s;
+  animation: xvTUm infinite;
+  top: -20px;
+  left: -10px;
+  width: 340px;
+  height: 340px;
+  animation-duration: 3s;
+  animation-delay: 0.5s;
+}
+
+<div
+    class="c0"
+  >
+    <div
+      class=""
+    >
+      <div
+        class="c1"
+      />
+      <div
+        class="c2"
+      />
+    </div>
+    <div
+      class="c3"
+    >
+      <div
+        class=""
+      >
+        <div
+          class="c4"
+        />
+        <div
+          class="c5"
+        />
+        <div
+          class="c6"
+        />
+        <div
+          class="c7"
+        />
+        <div
+          class="c8"
+        />
+        <div
+          class="c9"
+        />
+        <div
+          class="c10"
+        />
+        <div
+          class="c11"
+        />
+        <div
+          class="c12"
+        />
+        <div
+          class="c13"
+        />
+        <div
+          class="c14"
+        >
+          <div
+            class="c15"
+            role="button"
+            tabindex="0"
+          >
+            <span
+              aria-label="SoundOutlinedIcon"
+              class="anticon anticon-sound"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="sound"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M625.9 115c-5.9 0-11.9 1.6-17.4 5.3L254 352H90c-8.8 0-16 7.2-16 16v288c0 8.8 7.2 16 16 16h164l354.5 231.7c5.5 3.6 11.6 5.3 17.4 5.3 16.7 0 32.1-13.3 32.1-32.1V147.1c0-18.8-15.4-32.1-32.1-32.1zM586 803L293.4 611.7l-18-11.7H146V424h129.4l17.9-11.7L586 221v582zm348-327H806c-8.8 0-16 7.2-16 16v40c0 8.8 7.2 16 16 16h128c8.8 0 16-7.2 16-16v-40c0-8.8-7.2-16-16-16zm-41.9 261.8l-110.3-63.7a15.9 15.9 0 00-21.7 5.9l-19.9 34.5c-4.4 7.6-1.8 17.4 5.8 21.8L856.3 800a15.9 15.9 0 0021.7-5.9l19.9-34.5c4.4-7.6 1.7-17.4-5.8-21.8zM760 344a15.9 15.9 0 0021.7 5.9L892 286.2c7.6-4.4 10.2-14.2 5.8-21.8L878 230a15.9 15.9 0 00-21.7-5.9L746 287.8a15.99 15.99 0 00-5.8 21.8L760 344z"
+                />
+              </svg>
+            </span>
+          </div>
+          <audio
+            role="audio"
+          >
+            <source
+              src="/audio/moon_signal.mp3"
+              type="audio/mpeg"
+            />
+          </audio>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

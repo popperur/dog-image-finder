@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ShootingStars component > matches the snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  position: absolute;
+  top: 0;
+  height: 51%;
+  width: 55%;
+}
+
+.c1 {
+  position: relative;
+  top: -20%;
+  left: -20%;
+  height: 80px;
+  width: 2px;
+  background-color: #fff;
+  box-shadow: 0 0 30px #fff;
+  transform-origin: 10% 0;
+  transform: rotate(130deg) scale(0);
+  animation: giQQSW ease-in;
+  animation-duration: 4s;
+}
+
+<div
+    class="c0"
+  >
+    <div
+      class="c1"
+    />
+  </div>
+</DocumentFragment>
+`;
