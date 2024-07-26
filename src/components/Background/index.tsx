@@ -10,9 +10,9 @@ import Moon from "components/Background/Moon";
 import Stars from "components/Background/Stars";
 import Hills from "components/Background/Hills";
 
-// The animated background fetched from
+// The animated background is fetched from
 // https://codepen.io/drexqq/pen/vvryLb/
-// and reworked to have some randomized animations with React and styled components.
+// and reworked by randomizing animations and adding styled components.
 // Original version: LeeSungHee <3
 
 function Background() {

@@ -1,12 +1,14 @@
 # Dog Image Finder
 
-Have you ever wondered what a "Kuvasz" looks like? If so, this app is perfect for you! Additionally, it's my opportunity to demonstrate my frontend development skills.
+Browse the internet's largest collection of open-source dog images from https://dog.ceo/. Have you ever wondered what the mighty dog "Kuvasz" looks like? If so, this app is exactly what you've been looking for! Additionally, a great opportunity for me to demonstrate my coding skills to you. Just look into the sources, commits, etc.
 
-This app uses the internet's biggest collection of open source dog images from https://dog.ceo/ . Enjoy!
+Also, be sure to listen to the strange sounds emanating from one of the craters on the moon. What the hell, right?!
+
+
 
 ## Demo
 
-TODO MARK
+[TODO]
 
 ## Getting Started
 

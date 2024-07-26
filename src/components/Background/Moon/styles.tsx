@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MoonContainer = styled.div`
   position: absolute;
   top: 5%;
-  right: -7%;
+  left: -7%;
   width: 310px;
   height: 330px;
   opacity: 1;

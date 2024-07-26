@@ -21,11 +21,13 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "components/*": ["./src/components/*"],
-      "hooks/*": ["./src/hooks/*"]
+      "hooks/*": ["./src/hooks/*"],
+      "pages/*": ["./src/pages/*"],
+      "services/*": ["./src/services/*"],
+      "utils/*": ["./src/utils/*"]
     },
     "types": ["vitest/globals", "node"]
   },
-//  "include": ["src"],
   "include": ["src/**/*", "__tests__/**/*", "vitest.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

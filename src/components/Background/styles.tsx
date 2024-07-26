@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
 export const BackgroundContainer = styled.div`
-  position: absolute;
+  position: fixed;
   overflow: hidden;
   height: 100vh;
   width: 100%;

@@ -1,7 +1,12 @@
-import Background from "components/Background";
+import ErrorBoundary from "components/ErrorBoundary";
+import Home from "pages/Home";
 
 function App() {
-  return <Background />;
+  return (
+    <ErrorBoundary>
+      <Home />
+    </ErrorBoundary>
+  );
 }
 
 export default App;
