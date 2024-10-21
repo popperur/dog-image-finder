@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-export const CenteredContainer = styled.div`
-  height: 80vh;
+export const BreedFilterContainer = styled.div<{ $showOnTop: boolean }>`
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding-top: ${props => (props.$showOnTop ? "20px" : "33vh")};
 `;

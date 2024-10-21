@@ -1,11 +1,24 @@
-import { useEffect, useState } from "react";
-import { AutoComplete, Input } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { useEffect, useRef, useState } from "react";
+import { AutoComplete } from "antd";
+import { CloseOutlined } from "@ant-design/icons";
 import { getBreedNames } from "services/dogService.ts";
+import { BaseSelectRef } from "rc-select";
+import { ResetButton } from "components/BreedFilter/styles.tsx";
 
-function BreedFilter() {
+interface BreedFilterProps {
+  selectedBreedName: string;
+  onBreedNameSelect: (breedName: string) => void;
+}
+
+function BreedFilter({
+  selectedBreedName,
+  onBreedNameSelect,
+}: BreedFilterProps) {
+  const [inputValue, setInputValue] = useState<string>("");
   const [breedNames, setBreedNames] = useState<string[]>([]);
   const [filteredBreedNames, setFilteredBreedNames] = useState<string[]>([]);
+  const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
+  const autoCompleteRef = useRef<BaseSelectRef>(null);
 
   useEffect(() => {
     getBreedNames().then(breedNames => {
@@ -14,25 +27,58 @@ function BreedFilter() {
     });
   }, []);
 
-  const onSelect = (breed: string) => {
-    console.log(`Selected breed: ${breed}`);
+  const handleSearch = (typedText: string) => {
+    const blank = typedText === "";
+    setDropdownVisible(!blank);
+    if (!blank) {
+      const filteredNames: string[] = breedNames.filter(breedName =>
+        breedName.toLowerCase().includes(typedText.toLowerCase()),
+      );
+      setFilteredBreedNames(filteredNames);
+    }
   };
 
-  const handleSearch = (typedText: string) => {
-    const filteredNames: string[] = breedNames.filter(breedName =>
-      breedName.toLowerCase().includes(typedText.toLowerCase()),
-    );
-    setFilteredBreedNames(filteredNames);
+  const handleSelect = (breedName: string) => {
+    console.log(`Selected breed name: ${breedName}`);
+
+    onBreedNameSelect(breedName);
+    setDropdownVisible(false);
+  };
+
+  const onChange = (data: string) => {
+    setInputValue(data);
+  };
+
+  const resetSelection = () => {
+    setInputValue("");
+    handleSelect("");
+    autoCompleteRef.current?.focus();
   };
 
   return (
-    <AutoComplete
-      options={filteredBreedNames.map(breedName => ({ value: breedName }))}
-      onSelect={onSelect}
-      onSearch={handleSearch}
-    >
-      <Input placeholder="Look up a good boy!" prefix={<SearchOutlined />} />
-    </AutoComplete>
+    <>
+      <AutoComplete
+        ref={autoCompleteRef}
+        value={inputValue}
+        options={filteredBreedNames.map(breedName => ({ value: breedName }))}
+        style={{ width: 260 }}
+        onSelect={handleSelect}
+        onSearch={handleSearch}
+        onChange={onChange}
+        open={dropdownVisible}
+        placeholder="Look up a good boy by breed name!"
+      />
+
+      {selectedBreedName && (
+        <ResetButton
+          aria-label="reset selection"
+          color="default"
+          shape="default"
+          icon={<CloseOutlined />}
+          onClick={resetSelection}
+        />
+      )}
+    </>
   );
 }
 

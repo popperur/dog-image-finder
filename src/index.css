@@ -8,3 +8,8 @@ body {
 #root {
   width: 100%;
 }
+
+/* Global change of some AntD colors */
+.ant-select-dropdown .rc-virtual-list .ant-select-item-option-active {
+  background-color: #c1c1c1;
+}

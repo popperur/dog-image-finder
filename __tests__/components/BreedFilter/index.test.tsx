@@ -1,61 +1,113 @@
-import { describe, vi } from "vitest";
+import { beforeEach, describe, expect, vi } from "vitest";
 import BreedFilter from "components/BreedFilter";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import { getBreedNames } from "services/dogService.ts";
 
 describe("BreedFilter component", () => {
   describe("Snapshot", () => {
-    it("matches the snapshot", () => {
-      const { asFragment } = render(<BreedFilter />);
+    it("matches the snapshot", async () => {
+      const { asFragment } = render(
+        <BreedFilter selectedBreedName="" onBreedNameSelect={vi.fn()} />,
+      );
 
-      expect(asFragment()).toMatchSnapshot();
+      await waitFor(() => {
+        expect(asFragment()).toMatchSnapshot();
+      });
     });
   });
 
-  describe("Breed name selection", () => {
+  describe("Breed name selector", () => {
     beforeEach(() => {
       vi.mock("services/dogService", () => ({
-        getBreedNames: vi.fn().mockResolvedValue(["Komondor"]),
+        getBreedNames: vi.fn().mockResolvedValue(["Komondor", "Terrier"]),
       }));
     });
 
     it("fetches the breed names", async () => {
-      render(<BreedFilter />);
+      render(<BreedFilter selectedBreedName="" onBreedNameSelect={vi.fn()} />);
 
       await waitFor(() => {
         expect(getBreedNames).toHaveBeenCalled();
       });
     });
 
-    it("stores the breed names", async () => {
-      render(<BreedFilter />);
+    it("shows the breed names in the dropdown", async () => {
+      render(<BreedFilter selectedBreedName="" onBreedNameSelect={vi.fn()} />);
 
-      // Ant Design's Autocomplete doesn't like click, so we use mouseDown
-      // https://stackoverflow.com/questions/61080116/ant-design-v4-breaks-react-testing-library-tests-for-select-and-autocomplete/61115234
-      // https://github.com/ant-design/ant-design/issues/22074
-      fireEvent.mouseDown(screen.getByRole("combobox"));
-
-      await waitFor(() => {
-        expect(screen.getByTitle("Komondor")).toBeInTheDocument();
+      fireEvent.change(screen.getByRole("combobox"), {
+        target: { value: "Kom" }, // Simulating user typing
       });
+
+      const komondorOption = await screen.findByTitle("Komondor");
+      expect(komondorOption).toBeInTheDocument();
     });
 
     it("logs the selected breed", async () => {
-      render(<BreedFilter />);
+      render(<BreedFilter selectedBreedName="" onBreedNameSelect={vi.fn()} />);
 
       const consoleLogMock = vi
         .spyOn(console, "log")
         .mockImplementation(() => {});
+
       fireEvent.change(screen.getByRole("combobox"), {
-        target: { value: "Komondor" },
+        target: { value: "Kom" },
       });
 
       const komondorOption = await screen.findByTitle("Komondor");
       fireEvent.click(komondorOption);
 
-      expect(consoleLogMock).toHaveBeenCalledWith("Selected breed: Komondor");
+      expect(consoleLogMock).toHaveBeenCalledWith(
+        "Selected breed name: Komondor",
+      );
 
       consoleLogMock.mockRestore();
+    });
+  });
+
+  describe("Reset button", () => {
+    it("is rendered if there is a selection", async () => {
+      render(
+        <BreedFilter
+          selectedBreedName="Komondor"
+          onBreedNameSelect={vi.fn()}
+        />,
+      );
+
+      await waitFor(() => {
+        const resetButton = screen.getByRole("button", { name: /reset selection/i });
+        expect(resetButton).toBeInTheDocument();
+      });
+    });
+
+    it("is not rendered if there is no selection", async () => {
+      render(<BreedFilter selectedBreedName="" onBreedNameSelect={vi.fn()} />);
+
+      await waitFor(() => {
+        const resetButton = screen.queryByRole("button", { name: /reset selection/i });
+        expect(resetButton).not.toBeInTheDocument();
+      });
+    });
+
+    it("clears the selection", async () => {
+      const mockOnBreedNameSelect = vi.fn();
+
+      render(
+        <BreedFilter
+          selectedBreedName="Komondor"
+          onBreedNameSelect={mockOnBreedNameSelect}
+        />,
+      );
+
+      await waitFor(() => {
+        const resetButton = screen.getByRole("button", { name: /reset selection/i });
+        fireEvent.click(resetButton);
+        expect(mockOnBreedNameSelect).toHaveBeenCalledWith("");
+      });
     });
   });
 });

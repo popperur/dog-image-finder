@@ -15,18 +15,24 @@ import Hills from "components/Background/Hills";
 // and reworked by randomizing animations and adding styled components.
 // Original version: LeeSungHee <3
 
-function Background() {
+interface BackgroundProps {
+  showElements: boolean;
+}
+
+function Background({ showElements }: BackgroundProps) {
   return (
     <BackgroundContainer>
-      <BackgroundBlock>
-        <Stars />
-        <ShootingStars />
-        <Moon />
-        <Dog />
-        <Hills />
-        <DogHouse />
-        <Ground />
-      </BackgroundBlock>
+      {showElements && (
+        <BackgroundBlock>
+          <Stars />
+          <ShootingStars />
+          <Moon />
+          <Dog />
+          <Hills />
+          <DogHouse />
+          <Ground />
+        </BackgroundBlock>
+      )}
     </BackgroundContainer>
   );
 }

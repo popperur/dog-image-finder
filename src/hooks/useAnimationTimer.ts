@@ -31,7 +31,7 @@ function useAnimationTimer({
       const newDuration = durationFn();
       setDuration(newDuration);
       setDelay(newDuration + delayFn());
-      // Trick: restart animation by changing the component key
+      // Trick: restart the animation by changing the component key
       setKeyIndex(keyIndex => keyIndex + 1);
     }
   }, [passedSeconds, delay, durationFn, delayFn]);
