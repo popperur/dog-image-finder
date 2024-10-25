@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`DogImages component > matches the snapshot 1`] = `
+exports[`DogImages component > Snapshot > matches the snapshot 1`] = `
 <DocumentFragment>
   .c0 {
   padding: 40px;

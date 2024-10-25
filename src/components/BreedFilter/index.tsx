@@ -39,8 +39,6 @@ function BreedFilter({
   };
 
   const handleSelect = (breedName: string) => {
-    console.log(`Selected breed name: ${breedName}`);
-
     onBreedNameSelect(breedName);
     setDropdownVisible(false);
   };

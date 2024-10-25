@@ -4,7 +4,7 @@ import Background from "components/Background";
 
 describe("Background component", () => {
   it("matches the snapshot", () => {
-    const { asFragment } = render(<Background />);
+    const { asFragment } = render(<Background showElements={true} />);
 
     expect(asFragment()).toMatchSnapshot();
   });

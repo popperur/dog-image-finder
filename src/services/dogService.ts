@@ -31,7 +31,7 @@ async function getBreedNames() {
     .then(response => {
       if (response.data.status !== "success") {
         console.error(
-          "Dog.ceo retrieved the message with a non-success status.",
+          "Breed names could not be fetched from the Dog CEO site.",
         );
         return [];
       }
@@ -40,4 +40,34 @@ async function getBreedNames() {
     .catch(error => handleError(error, []));
 }
 
-export { getBreedNames };
+async function getDogImageURLs(breedName: string, imageCount: number = 10) {
+  if (!breedName || !breedName.trim()) {
+    throw new Error("breedName is required and cannot be empty.");
+  }
+
+  let masterBreedName = breedName.toLowerCase();
+  let subBreedName = "";
+  const words = masterBreedName.split(" ");
+  if (words.length > 1) {
+    // first word is the sub, the rest is the master breed
+    // examples: irish spaniel
+    subBreedName = words.shift() || "";
+    masterBreedName = words.join(" ");
+  }
+
+  const breedPath = masterBreedName + (subBreedName ? `/${subBreedName}` : "");
+  return axios
+    .get(`${BASE_URL}/breed/${breedPath}/images/random/${imageCount}`)
+    .then(response => {
+      if (response.data.status !== "success") {
+        console.error(
+          `Breed image URLs for ${breedName} could not be fetched from the Dog CEO site.`,
+        );
+        return [];
+      }
+      return response.data.message;
+    })
+    .catch(error => handleError(error, []));
+}
+
+export { getBreedNames, getDogImageURLs };

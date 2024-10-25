@@ -14,7 +14,7 @@ describe("MoonSignalPlayer component", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  describe("Play and pause", () => {
+  describe("play and pause", () => {
     let playMock: MockInstance;
     let pauseMock: MockInstance;
     let moonSignalPlayerButton: HTMLDivElement;

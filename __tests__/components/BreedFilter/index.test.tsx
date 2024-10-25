@@ -1,12 +1,16 @@
-import { beforeEach, describe, expect, vi } from "vitest";
+import {afterEach, beforeEach, describe, expect, vi} from "vitest";
 import BreedFilter from "components/BreedFilter";
-import {
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { getBreedNames } from "services/dogService.ts";
+
+beforeEach(() => {
+  vi.mock("services/dogService", () => ({
+    getBreedNames: vi.fn().mockResolvedValue(["Komondor", "Terrier"]),
+  }));
+});
+afterEach(() => {
+  vi.clearAllMocks()
+})
 
 describe("BreedFilter component", () => {
   describe("Snapshot", () => {
@@ -21,13 +25,7 @@ describe("BreedFilter component", () => {
     });
   });
 
-  describe("Breed name selector", () => {
-    beforeEach(() => {
-      vi.mock("services/dogService", () => ({
-        getBreedNames: vi.fn().mockResolvedValue(["Komondor", "Terrier"]),
-      }));
-    });
-
+  describe("breed name selector", () => {
     it("fetches the breed names", async () => {
       render(<BreedFilter selectedBreedName="" onBreedNameSelect={vi.fn()} />);
 
@@ -47,12 +45,9 @@ describe("BreedFilter component", () => {
       expect(komondorOption).toBeInTheDocument();
     });
 
-    it("logs the selected breed", async () => {
-      render(<BreedFilter selectedBreedName="" onBreedNameSelect={vi.fn()} />);
-
-      const consoleLogMock = vi
-        .spyOn(console, "log")
-        .mockImplementation(() => {});
+    it("calls the parent component back with the selected breed name", async () => {
+      const mockOnBreedNameSelect = vi.fn();
+      render(<BreedFilter selectedBreedName="" onBreedNameSelect={mockOnBreedNameSelect} />);
 
       fireEvent.change(screen.getByRole("combobox"), {
         target: { value: "Kom" },
@@ -61,15 +56,11 @@ describe("BreedFilter component", () => {
       const komondorOption = await screen.findByTitle("Komondor");
       fireEvent.click(komondorOption);
 
-      expect(consoleLogMock).toHaveBeenCalledWith(
-        "Selected breed name: Komondor",
-      );
-
-      consoleLogMock.mockRestore();
+      expect(mockOnBreedNameSelect).toHaveBeenCalledWith("Komondor");
     });
   });
 
-  describe("Reset button", () => {
+  describe("reset button", () => {
     it("is rendered if there is a selection", async () => {
       render(
         <BreedFilter
@@ -79,7 +70,9 @@ describe("BreedFilter component", () => {
       );
 
       await waitFor(() => {
-        const resetButton = screen.getByRole("button", { name: /reset selection/i });
+        const resetButton = screen.getByRole("button", {
+          name: /reset selection/i,
+        });
         expect(resetButton).toBeInTheDocument();
       });
     });
@@ -88,7 +81,9 @@ describe("BreedFilter component", () => {
       render(<BreedFilter selectedBreedName="" onBreedNameSelect={vi.fn()} />);
 
       await waitFor(() => {
-        const resetButton = screen.queryByRole("button", { name: /reset selection/i });
+        const resetButton = screen.queryByRole("button", {
+          name: /reset selection/i,
+        });
         expect(resetButton).not.toBeInTheDocument();
       });
     });
@@ -104,7 +99,9 @@ describe("BreedFilter component", () => {
       );
 
       await waitFor(() => {
-        const resetButton = screen.getByRole("button", { name: /reset selection/i });
+        const resetButton = screen.getByRole("button", {
+          name: /reset selection/i,
+        });
         fireEvent.click(resetButton);
         expect(mockOnBreedNameSelect).toHaveBeenCalledWith("");
       });
