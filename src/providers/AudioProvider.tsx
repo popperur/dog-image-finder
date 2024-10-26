@@ -1,5 +1,5 @@
 import React, { useReducer, useRef } from "react";
-import { audioReducer, AudioContext } from "context/AudioContext.ts";
+import { audioReducer, AudioContext } from "context/audioContext.ts";
 
 interface AudioProviderProps {
   children: React.ReactNode;

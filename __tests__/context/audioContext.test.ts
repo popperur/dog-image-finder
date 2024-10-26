@@ -1,4 +1,4 @@
-import { audioReducer } from "context/AudioContext";
+import { audioReducer } from "context/audioContext";
 
 describe("audioReducer", () => {
   it("sets isPlaying to true when action type is PLAY", () => {
