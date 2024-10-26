@@ -1,4 +1,4 @@
-import {afterEach, beforeEach, describe, expect, vi} from "vitest";
+import { afterEach, beforeEach, describe, expect, vi } from "vitest";
 import BreedFilter from "components/BreedFilter";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { getBreedNames } from "services/dogService.ts";
@@ -9,11 +9,11 @@ beforeEach(() => {
   }));
 });
 afterEach(() => {
-  vi.clearAllMocks()
-})
+  vi.clearAllMocks();
+});
 
 describe("BreedFilter component", () => {
-  describe("Snapshot", () => {
+  describe("snapshot", () => {
     it("matches the snapshot", async () => {
       const { asFragment } = render(
         <BreedFilter selectedBreedName="" onBreedNameSelect={vi.fn()} />,
@@ -47,7 +47,12 @@ describe("BreedFilter component", () => {
 
     it("calls the parent component back with the selected breed name", async () => {
       const mockOnBreedNameSelect = vi.fn();
-      render(<BreedFilter selectedBreedName="" onBreedNameSelect={mockOnBreedNameSelect} />);
+      render(
+        <BreedFilter
+          selectedBreedName=""
+          onBreedNameSelect={mockOnBreedNameSelect}
+        />,
+      );
 
       fireEvent.change(screen.getByRole("combobox"), {
         target: { value: "Kom" },

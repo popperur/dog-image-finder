@@ -1,7 +1,7 @@
-import {render, waitFor, screen} from "@testing-library/react";
-import {describe, it, expect, beforeEach, vi, afterEach} from "vitest";
+import { render, waitFor, screen } from "@testing-library/react";
+import { describe, it, expect, beforeEach, vi, afterEach } from "vitest";
 import DogImages from "components/DogImages";
-import {getDogImageURLs} from "services/dogService.ts";
+import { getDogImageURLs } from "services/dogService.ts";
 
 beforeEach(() => {
   vi.mock("services/dogService", () => ({
@@ -9,11 +9,11 @@ beforeEach(() => {
   }));
 });
 afterEach(() => {
-  vi.clearAllMocks()
-})
+  vi.clearAllMocks();
+});
 
 describe("DogImages component", () => {
-  describe("Snapshot", () => {
+  describe("snapshot", () => {
     it("matches the snapshot", async () => {
       const { asFragment } = render(<DogImages selectedBreedName="komondor" />);
 
@@ -46,7 +46,9 @@ describe("DogImages component", () => {
     });
 
     it("handles API error gracefully and does not render images", async () => {
-      const consoleErrorMock = vi.spyOn(console, "error").mockImplementation(() => {});
+      const consoleErrorMock = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
       const mockedGetDogImageURLs = vi.mocked(getDogImageURLs);
       mockedGetDogImageURLs.mockRejectedValue(new Error("Network Error"));
 
@@ -54,7 +56,7 @@ describe("DogImages component", () => {
 
       await waitFor(() => {
         expect(consoleErrorMock).toHaveBeenCalledWith(
-          "Dog images could not be retrieved: Error: Network Error"
+          "Dog images could not be retrieved: Error: Network Error",
         );
         expect(screen.queryAllByRole("img")).toHaveLength(0);
       });

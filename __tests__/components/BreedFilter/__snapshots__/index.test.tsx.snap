@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`BreedFilter component > Snapshot > matches the snapshot 1`] = `
+exports[`BreedFilter component > snapshot > matches the snapshot 1`] = `
 <DocumentFragment>
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-dev-only-do-not-override-1r287do ant-select-single ant-select-show-search"

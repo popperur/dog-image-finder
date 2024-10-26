@@ -3,6 +3,7 @@ import BreedFilter from "components/BreedFilter";
 import { BreedFilterContainer } from "pages/Home/styles.tsx";
 import { useState } from "react";
 import DogImages from "components/DogImages";
+import AudioProvider from "providers/AudioProvider.tsx";
 
 function Home() {
   const [selectedBreedName, setSelectedBreedName] = useState("");
@@ -10,7 +11,7 @@ function Home() {
   const breedSelected = !!selectedBreedName;
 
   return (
-    <>
+    <AudioProvider>
       <Background showElements={!breedSelected} />
       <BreedFilterContainer $showOnTop={breedSelected}>
         <BreedFilter
@@ -19,7 +20,7 @@ function Home() {
         />
       </BreedFilterContainer>
       {breedSelected && <DogImages selectedBreedName={selectedBreedName} />}
-    </>
+    </AudioProvider>
   );
 }
 

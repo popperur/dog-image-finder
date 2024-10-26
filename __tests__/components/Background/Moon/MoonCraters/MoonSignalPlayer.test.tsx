@@ -1,96 +1,124 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import MoonSignalPlayer from "components/Background/Moon/MoonCraters/MoonSignalPlayer";
-import { MockInstance } from "@vitest/spy";
 import {
   TOOLTIP_PAUSED,
   TOOLTIP_PLAYING,
 } from "components/Background/constants.ts";
+import useAudio from "hooks/useAudio.ts";
+
+beforeEach(() => {
+  vi.mock("hooks/useAudio.ts", () => ({
+    default: vi.fn(),
+  }));
+});
+afterEach(() => {
+  vi.clearAllMocks();
+});
 
 describe("MoonSignalPlayer component", () => {
-  it("matches the snapshot", () => {
-    const { asFragment } = render(<MoonSignalPlayer />);
+  describe("snapshot", () => {
+    it("matches the snapshot", () => {
+      vi.mocked(useAudio).mockReturnValue({
+        state: { isPlaying: false },
+        play: vi.fn(),
+        pause: vi.fn(),
+      });
+      const { asFragment } = render(<MoonSignalPlayer />);
 
-    expect(asFragment()).toMatchSnapshot();
+      expect(asFragment()).toMatchSnapshot();
+    });
   });
 
-  describe("play and pause", () => {
-    let playMock: MockInstance;
-    let pauseMock: MockInstance;
-    let moonSignalPlayerButton: HTMLDivElement;
-
-    beforeEach(() => {
-      render(<MoonSignalPlayer />);
-      moonSignalPlayerButton = screen.getByRole("button", {
-        hidden: true,
+  describe("render", () => {
+    it("renders with paused state initially", async () => {
+      vi.mocked(useAudio).mockReturnValue({
+        state: { isPlaying: false },
+        play: vi.fn(),
+        pause: vi.fn(),
       });
 
-      playMock = vi
-        .spyOn(window.HTMLMediaElement.prototype, "play")
-        .mockImplementation(() => Promise.resolve());
-      pauseMock = vi
-        .spyOn(window.HTMLMediaElement.prototype, "pause")
-        .mockImplementation(() => {});
+      render(<MoonSignalPlayer />);
+
+      expect(screen.getByLabelText("toggle music")).toBeInTheDocument();
+      expect(screen.getByLabelText("SoundOutlinedIcon")).toBeInTheDocument();
+
+      const moonSignalPlayerButton = screen.getByRole("button", {
+        name: /toggle music/i,
+      });
+      fireEvent.mouseOver(moonSignalPlayerButton);
+
+      await waitFor(() => {
+        expect(screen.getByText(TOOLTIP_PAUSED)).toBeInTheDocument();
+      });
     });
 
-    afterEach(() => {
-      playMock.mockRestore();
-      pauseMock.mockRestore();
-    });
+    it("renders with played state initially", async () => {
+      vi.mocked(useAudio).mockReturnValue({
+        state: { isPlaying: true },
+        play: vi.fn(),
+        pause: vi.fn(),
+      });
 
-    it("toggles audio play/pause on signal player button click", () => {
-      // Play audio
+      render(<MoonSignalPlayer />);
+
+      expect(screen.getByLabelText("toggle music")).toBeInTheDocument();
+      expect(screen.getByLabelText("SoundFilledIcon")).toBeInTheDocument();
+
+      const moonSignalPlayerButton = screen.getByRole("button", {
+        name: /toggle music/i,
+      });
+      fireEvent.mouseOver(moonSignalPlayerButton);
+
+      await waitFor(() => {
+        expect(screen.getByText(TOOLTIP_PLAYING)).toBeInTheDocument();
+      });
+    });
+  });
+
+  describe("toggle music", () => {
+    it("plays audio on signal player button click", async () => {
+      const playMock = vi.fn();
+      vi.mocked(useAudio).mockReturnValue({
+        state: { isPlaying: false },
+        play: playMock,
+        pause: vi.fn(),
+      });
+      render(<MoonSignalPlayer />);
+
+      const moonSignalPlayerButton = screen.getByRole("button", {
+        name: /toggle music/i,
+      });
       fireEvent.click(moonSignalPlayerButton);
 
       expect(playMock).toHaveBeenCalled();
 
-      // Pause audio
+      fireEvent.mouseOver(moonSignalPlayerButton);
+      await waitFor(() => {
+        expect(screen.getByText(TOOLTIP_PLAYING)).toBeInTheDocument();
+      });
+    });
+
+    it("pauses audio on signal player button click", async () => {
+      const pauseMock = vi.fn();
+      vi.mocked(useAudio).mockReturnValue({
+        state: { isPlaying: true },
+        play: vi.fn(),
+        pause: pauseMock,
+      });
+      render(<MoonSignalPlayer />);
+
+      const moonSignalPlayerButton = screen.getByRole("button", {
+        name: /toggle music/i,
+      });
       fireEvent.click(moonSignalPlayerButton);
 
       expect(pauseMock).toHaveBeenCalled();
-    });
 
-    it("changes the icon on signal player button click", () => {
-      const isSoundFilled = () => {
-        return screen.queryByLabelText("SoundFilledIcon") !== null;
-      };
-
-      const isSoundOutlined = () => {
-        return screen.queryByLabelText("SoundOutlinedIcon") !== null;
-      };
-
-      // Initially, the SoundOutlined should be rendered
-      expect(isSoundOutlined()).toBe(true);
-
-      // Play audio
-      fireEvent.click(moonSignalPlayerButton);
-
-      expect(isSoundFilled()).toBe(true);
-
-      // Pause audio
-      fireEvent.click(moonSignalPlayerButton);
-
-      expect(isSoundOutlined()).toBe(true);
-    });
-
-    it("displays the correct tooltip text", async () => {
       fireEvent.mouseOver(moonSignalPlayerButton);
-      await screen.findByText(TOOLTIP_PAUSED);
-
-      // Check initial tooltip text
-      expect(screen.getByText(TOOLTIP_PAUSED)).toBeInTheDocument();
-
-      // Play audio
-      fireEvent.click(moonSignalPlayerButton);
-      await screen.findByText(TOOLTIP_PLAYING);
-
-      expect(screen.getByText(TOOLTIP_PLAYING)).toBeInTheDocument();
-
-      // Pause audio
-      fireEvent.click(moonSignalPlayerButton);
-      await screen.findByText(TOOLTIP_PAUSED);
-
-      expect(screen.getByText(TOOLTIP_PAUSED)).toBeInTheDocument();
+      await waitFor(() => {
+        expect(screen.getByText(TOOLTIP_PAUSED)).toBeInTheDocument();
+      });
     });
   });
 });

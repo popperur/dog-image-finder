@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`MoonSignalPlayer component > matches the snapshot 1`] = `
+exports[`MoonSignalPlayer component > snapshot > matches the snapshot 1`] = `
 <DocumentFragment>
   .c0 {
   cursor: pointer;
@@ -9,6 +9,7 @@ exports[`MoonSignalPlayer component > matches the snapshot 1`] = `
 }
 
 <div
+    aria-label="toggle music"
     class="c0"
     role="button"
     tabindex="0"
@@ -33,13 +34,5 @@ exports[`MoonSignalPlayer component > matches the snapshot 1`] = `
       </svg>
     </span>
   </div>
-  <audio
-    role="audio"
-  >
-    <source
-      src="/audio/moon_signal.mp3"
-      type="audio/mpeg"
-    />
-  </audio>
 </DocumentFragment>
 `;

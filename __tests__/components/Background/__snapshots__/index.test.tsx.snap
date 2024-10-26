@@ -973,6 +973,7 @@ exports[`Background component > matches the snapshot 1`] = `
               class="c39"
             >
               <div
+                aria-label="toggle music"
                 class="c40"
                 role="button"
                 tabindex="0"
@@ -997,14 +998,6 @@ exports[`Background component > matches the snapshot 1`] = `
                   </svg>
                 </span>
               </div>
-              <audio
-                role="audio"
-              >
-                <source
-                  src="/audio/moon_signal.mp3"
-                  type="audio/mpeg"
-                />
-              </audio>
             </div>
           </div>
         </div>
@@ -1132,5 +1125,13 @@ exports[`Background component > matches the snapshot 1`] = `
       />
     </div>
   </div>
+  <audio
+    role="audio"
+  >
+    <source
+      src="/audio/moon_signal.mp3"
+      type="audio/mpeg"
+    />
+  </audio>
 </DocumentFragment>
 `;
