@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, vi } from "vitest";
 import BreedFilter from "components/BreedFilter";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { getBreedNames } from "services/dogService.ts";
+import * as mobile from "utils/mobile.ts";
 
 beforeEach(() => {
   vi.mock("services/dogService", () => ({
@@ -45,23 +46,81 @@ describe("BreedFilter component", () => {
       expect(komondorOption).toBeInTheDocument();
     });
 
-    it("calls the parent component back with the selected breed name", async () => {
-      const mockOnBreedNameSelect = vi.fn();
-      render(
-        <BreedFilter
-          selectedBreedName=""
-          onBreedNameSelect={mockOnBreedNameSelect}
-        />,
-      );
+    describe("user selection", () => {
+      it("calls the parent component back with the selected breed name", async () => {
+        const mockOnBreedNameSelect = vi.fn();
+        render(
+          <BreedFilter
+            selectedBreedName=""
+            onBreedNameSelect={mockOnBreedNameSelect}
+          />,
+        );
 
-      fireEvent.change(screen.getByRole("combobox"), {
-        target: { value: "Kom" },
+        fireEvent.change(screen.getByRole("combobox"), {
+          target: { value: "Kom" },
+        });
+
+        const komondorOption = await screen.findByTitle("Komondor");
+        fireEvent.click(komondorOption);
+
+        expect(mockOnBreedNameSelect).toHaveBeenCalledWith("Komondor");
       });
 
-      const komondorOption = await screen.findByTitle("Komondor");
-      fireEvent.click(komondorOption);
+      describe("on mobile", () => {
+        it("blurs the AutoComplete control", async () => {
+          const mockOnBreedNameSelect = vi.fn();
+          const mockBlur = vi.fn();
+          vi.spyOn(mobile, "isMobileDevice").mockReturnValue(true);
 
-      expect(mockOnBreedNameSelect).toHaveBeenCalledWith("Komondor");
+          render(
+            <BreedFilter
+              selectedBreedName=""
+              onBreedNameSelect={mockOnBreedNameSelect}
+            />,
+          );
+
+          const input = screen.getByRole("combobox", {
+            name: /breed name autocomplete/i,
+          });
+          Object.defineProperty(input, "blur", { value: mockBlur });
+
+          fireEvent.change(screen.getByRole("combobox"), {
+            target: { value: "Kom" },
+          });
+          const komondorOption = await screen.findByTitle("Komondor");
+          fireEvent.click(komondorOption);
+
+          expect(mockBlur).toHaveBeenCalled();
+        });
+      });
+
+      describe("on desktop", () => {
+        it("does not blur the AutoComplete control", async () => {
+          const mockOnBreedNameSelect = vi.fn();
+          const mockBlur = vi.fn();
+          vi.spyOn(mobile, "isMobileDevice").mockReturnValue(false);
+
+          render(
+            <BreedFilter
+              selectedBreedName=""
+              onBreedNameSelect={mockOnBreedNameSelect}
+            />,
+          );
+
+          const input = screen.getByRole("combobox", {
+            name: /breed name autocomplete/i,
+          });
+          Object.defineProperty(input, "blur", { value: mockBlur });
+
+          fireEvent.change(screen.getByRole("combobox"), {
+            target: { value: "Kom" },
+          });
+          const komondorOption = await screen.findByTitle("Komondor");
+          fireEvent.click(komondorOption);
+
+          expect(mockBlur).not.toHaveBeenCalled();
+        });
+      });
     });
   });
 
@@ -109,6 +168,32 @@ describe("BreedFilter component", () => {
         });
         fireEvent.click(resetButton);
         expect(mockOnBreedNameSelect).toHaveBeenCalledWith("");
+      });
+    });
+
+    it("focuses the AutoComplete control", async () => {
+      const mockOnBreedNameSelect = vi.fn();
+      const mockFocus = vi.fn();
+
+      render(
+        <BreedFilter
+          selectedBreedName="Komondor"
+          onBreedNameSelect={mockOnBreedNameSelect}
+        />,
+      );
+
+      await waitFor(() => {
+        const input = screen.getByRole("combobox", {
+          name: /breed name autocomplete/i,
+        });
+        Object.defineProperty(input, "focus", { value: mockFocus });
+
+        const resetButton = screen.getByRole("button", {
+          name: /reset selection/i,
+        });
+        fireEvent.click(resetButton);
+
+        expect(mockFocus).toHaveBeenCalled();
       });
     });
   });

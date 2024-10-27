@@ -4,6 +4,7 @@ import { CloseOutlined } from "@ant-design/icons";
 import { getBreedNames } from "services/dogService.ts";
 import { BaseSelectRef } from "rc-select";
 import { ResetButton } from "components/BreedFilter/styles.tsx";
+import { isMobileDevice } from "utils/mobile.ts";
 
 interface BreedFilterProps {
   selectedBreedName: string;
@@ -41,6 +42,9 @@ function BreedFilter({
   const handleSelect = (breedName: string) => {
     onBreedNameSelect(breedName);
     setDropdownVisible(false);
+    if (isMobileDevice()) {
+      autoCompleteRef.current?.blur();
+    }
   };
 
   const onChange = (data: string) => {
@@ -56,6 +60,7 @@ function BreedFilter({
   return (
     <>
       <AutoComplete
+        aria-label="breed name autocomplete"
         ref={autoCompleteRef}
         value={inputValue}
         options={filteredBreedNames.map(breedName => ({ value: breedName }))}
