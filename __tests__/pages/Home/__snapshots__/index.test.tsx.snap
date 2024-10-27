@@ -1135,6 +1135,7 @@ exports[`Home component > matches the snapshot 1`] = `
     class="c0"
   >
     <div
+      aria-label="breed name autocomplete"
       class="ant-select ant-select-outlined ant-select-auto-complete css-dev-only-do-not-override-1r287do ant-select-single ant-select-show-search"
       style="width: 260px;"
     >
@@ -1149,6 +1150,7 @@ exports[`Home component > matches the snapshot 1`] = `
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="breed name autocomplete"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
