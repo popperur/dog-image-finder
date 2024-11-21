@@ -28,7 +28,7 @@ describe("DogImages component", () => {
       render(<DogImages selectedBreedName="Komondor" />);
 
       await waitFor(() => {
-        expect(getDogImageURLs).toHaveBeenCalledWith("Komondor", 9);
+        expect(getDogImageURLs).toHaveBeenCalledWith("Komondor", 24);
       });
     });
 

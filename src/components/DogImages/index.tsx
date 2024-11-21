@@ -1,13 +1,12 @@
-import { Col, Row } from "antd";
+import { Flex } from "antd";
 import { DogImage, DogImagesContainer } from "components/DogImages/styles.tsx";
 import { useEffect, useState } from "react";
 import { getDogImageURLs } from "services/dogService.ts";
+import { DISPLAY_DOG_IMAGE_COUNT } from "components/Background/constants.ts";
 
 interface DogImagesProps {
   selectedBreedName: string;
 }
-
-const DISPLAY_DOG_IMAGE_COUNT = 9;
 
 function DogImages({ selectedBreedName }: DogImagesProps) {
   const [dogImageURLs, setDogImageURLs] = useState([]);
@@ -25,17 +24,16 @@ function DogImages({ selectedBreedName }: DogImagesProps) {
   return (
     <DogImagesContainer>
       {dogImageURLs.length > 0 && (
-        <Row gutter={[40, 40]}>
+        <Flex wrap gap="small" align="flex-start" justify="center">
           {dogImageURLs.map((dogImageUrl, index) => (
-            <Col key={index} xs={24} sm={24} md={8} lg={8} xl={8}>
-              <DogImage
-                src={dogImageUrl}
-                alt={`Dog Image ${index + 1}`}
-                loading="lazy"
-              />
-            </Col>
+            <DogImage
+              key={index}
+              src={dogImageUrl}
+              alt={`Dog Image ${index + 1}`}
+              loading="lazy"
+            />
           ))}
-        </Row>
+        </Flex>
       )}
     </DogImagesContainer>
   );

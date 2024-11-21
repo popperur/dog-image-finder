@@ -52,3 +52,5 @@ export const HILLS = [
   [259, 229, 28, 255],
   [211, 334, 28, 246],
 ];
+
+export const DISPLAY_DOG_IMAGE_COUNT = 24;
