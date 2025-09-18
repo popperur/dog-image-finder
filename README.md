@@ -1,3 +1,5 @@
+![Banner](docs/images/banner.png)
+
 # Dog Image Finder
 
 This project highlights my frontend coding skills.
@@ -7,8 +9,6 @@ Have you ever wondered what the mighty dog "Kuvasz" looks like? If so, this app 
 Also, be sure to listen to the strange sounds emanating from one of the craters on the moon. What the hell, right?! Spooky!
 
 ## Demo
-
-https://ngt4gc-5173.csb.app/
 
 https://codesandbox.io/p/github/popperur/dog-image-finder/main
 
