@@ -20,7 +20,6 @@ https://codesandbox.io/p/github/popperur/dog-image-finder/main
 
 ### Getting Started
 
-0. Make sure to have at least Node 18.19.0 
 1. `npm install`
 2. `npm start`
 3. Open http://localhost:5173/
@@ -32,14 +31,13 @@ https://codesandbox.io/p/github/popperur/dog-image-finder/main
 ### Other hints
 
 `npm run lint` to lint
-
 `npm run prettier` to format the code
 
 ### Tech Stack
 
 - React 18.3
 - Typescript 5.2
-- Vite 5.2
+- Vite 7.1
 - Ant Design 5.17
 - styled-components 6.1
-- Vitest 1.6 and Testing Library 16.0
+- Vitest 3.2.4 and Testing Library 16.0
