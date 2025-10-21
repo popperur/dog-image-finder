@@ -124,6 +124,80 @@ describe("BreedFilter component", () => {
     });
   });
 
+  describe("keyboard handling", () => {
+    it("opens dropdown with all breeds when ArrowDown is pressed on empty input", async () => {
+      render(<BreedFilter selectedBreedName="" onBreedNameSelect={vi.fn()} />);
+
+      await waitFor(() => {
+        expect(getBreedNames).toHaveBeenCalled();
+      });
+
+      const input = screen.getByRole("combobox");
+      fireEvent.keyDown(input, { key: "ArrowDown" });
+
+      const komondorOption = await screen.findByTitle("Komondor");
+      const terrierOption = await screen.findByTitle("Terrier");
+
+      expect(komondorOption).toBeInTheDocument();
+      expect(terrierOption).toBeInTheDocument();
+    });
+
+    it("opens dropdown with all breeds when Enter is pressed on empty input", async () => {
+      render(<BreedFilter selectedBreedName="" onBreedNameSelect={vi.fn()} />);
+
+      await waitFor(() => {
+        expect(getBreedNames).toHaveBeenCalled();
+      });
+
+      const input = screen.getByRole("combobox");
+      fireEvent.keyDown(input, { key: "Enter" });
+
+      const komondorOption = await screen.findByTitle("Komondor");
+      const terrierOption = await screen.findByTitle("Terrier");
+
+      expect(komondorOption).toBeInTheDocument();
+      expect(terrierOption).toBeInTheDocument();
+    });
+
+    it("does not open dropdown when ArrowDown is pressed on non-empty input", async () => {
+      render(<BreedFilter selectedBreedName="" onBreedNameSelect={vi.fn()} />);
+
+      await waitFor(() => {
+        expect(getBreedNames).toHaveBeenCalled();
+      });
+
+      const input = screen.getByRole("combobox");
+      fireEvent.change(input, { target: { value: "Test" } });
+      fireEvent.keyDown(input, { key: "ArrowDown" });
+
+      const terrierOption = screen.queryByTitle("Terrier");
+      expect(terrierOption).not.toBeInTheDocument();
+    });
+
+    it("does not reopen dropdown when Enter is pressed while dropdown is already open", async () => {
+      const mockOnBreedNameSelect = vi.fn();
+      render(
+        <BreedFilter
+          selectedBreedName=""
+          onBreedNameSelect={mockOnBreedNameSelect}
+        />,
+      );
+
+      await waitFor(() => {
+        expect(getBreedNames).toHaveBeenCalled();
+      });
+
+      const input = screen.getByRole("combobox");
+
+      fireEvent.keyDown(input, { key: "Enter" });
+
+      const komondorOption = await screen.findByTitle("Komondor");
+      fireEvent.click(komondorOption);
+
+      expect(mockOnBreedNameSelect).toHaveBeenCalledWith("Komondor");
+    });
+  });
+
   describe("reset button", () => {
     it("is rendered if there is a selection", async () => {
       render(

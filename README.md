@@ -16,6 +16,12 @@ Spooky!
 
 https://codesandbox.io/p/github/popperur/dog-image-finder/main
 
+## Features
+
+### Keyboard Navigation
+- **Arrow Down** or **Enter** on an empty breed search field: Opens the dropdown with all available dog breeds
+- Start typing to filter breeds in real-time
+
 ## Development
 
 ### Getting Started

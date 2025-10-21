@@ -61,6 +61,17 @@ function BreedFilter({
     autoCompleteRef.current?.focus();
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
+    if (
+      (e.key === "ArrowDown" || e.key === "Enter") &&
+      inputValue === "" &&
+      !dropdownVisible
+    ) {
+      setFilteredBreedNames(breedNames);
+      setDropdownVisible(true);
+    }
+  };
+
   return (
     <>
       <AutoComplete
@@ -72,6 +83,7 @@ function BreedFilter({
         onSelect={handleSelect}
         onSearch={handleSearch}
         onChange={onChange}
+        onKeyDown={handleKeyDown}
         open={dropdownVisible}
         placeholder="Look up a good boy by breed name!"
       />
