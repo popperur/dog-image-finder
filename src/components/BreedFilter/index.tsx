@@ -22,10 +22,14 @@ function BreedFilter({
   const autoCompleteRef = useRef<BaseSelectRef>(null);
 
   useEffect(() => {
-    getBreedNames().then(breedNames => {
-      setBreedNames(breedNames);
-      setFilteredBreedNames(breedNames);
-    });
+    getBreedNames()
+      .then(breedNames => {
+        setBreedNames(breedNames);
+        setFilteredBreedNames(breedNames);
+      })
+      .catch(error => {
+        console.error(`Error in BreedFilter: ${error}`);
+      });
   }, []);
 
   const handleSearch = (typedText: string) => {

@@ -39,13 +39,13 @@ describe("DogImages component", () => {
         const images = screen.getAllByRole("img");
         expect(images).toHaveLength(2);
         expect(images[0]).toHaveAttribute("src", "image1.jpg");
-        expect(images[0]).toHaveAttribute("alt", "Dog Image 1");
+        expect(images[0]).toHaveAttribute("alt", "Dog Image");
         expect(images[1]).toHaveAttribute("src", "image2.jpg");
-        expect(images[1]).toHaveAttribute("alt", "Dog Image 2");
+        expect(images[1]).toHaveAttribute("alt", "Dog Image");
       });
     });
 
-    it("handles API error gracefully and does not render images", async () => {
+    it("handles API error gracefully and logs to console", async () => {
       const consoleErrorMock = vi
         .spyOn(console, "error")
         .mockImplementation(() => {});

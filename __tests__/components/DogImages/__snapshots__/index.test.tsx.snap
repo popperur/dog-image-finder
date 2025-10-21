@@ -4,10 +4,35 @@ exports[`DogImages component > snapshot > matches the snapshot 1`] = `
 <DocumentFragment>
   .c0 {
   padding: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 <div
     class="c0"
-  />
+  >
+    <div
+      aria-busy="true"
+      aria-live="polite"
+      class="ant-spin ant-spin-lg ant-spin-spinning css-dev-only-do-not-override-1r287do"
+    >
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
+    </div>
+  </div>
 </DocumentFragment>
 `;

@@ -1,4 +1,4 @@
-import { Flex } from "antd";
+import { Flex, Spin } from "antd";
 import { DogImage, DogImagesContainer } from "components/DogImages/styles.tsx";
 import { useEffect, useState } from "react";
 import { getDogImageURLs } from "services/dogService.ts";
@@ -9,27 +9,32 @@ interface DogImagesProps {
 }
 
 function DogImages({ selectedBreedName }: DogImagesProps) {
-  const [dogImageURLs, setDogImageURLs] = useState([]);
+  const [dogImageURLs, setDogImageURLs] = useState<string[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    setLoading(true);
     getDogImageURLs(selectedBreedName, DISPLAY_DOG_IMAGE_COUNT)
       .then(dogImageURLs => {
         setDogImageURLs(dogImageURLs);
+        setLoading(false);
       })
       .catch(error => {
         console.error(`Dog images could not be retrieved: ${error}`);
+        setLoading(false);
       });
   }, [selectedBreedName]);
 
   return (
     <DogImagesContainer>
-      {dogImageURLs.length > 0 && (
+      {loading && <Spin size="large" />}
+      {!loading && dogImageURLs.length > 0 && (
         <Flex wrap gap="small" align="flex-start" justify="center">
-          {dogImageURLs.map((dogImageUrl, index) => (
+          {dogImageURLs.map(dogImageUrl => (
             <DogImage
-              key={index}
+              key={dogImageUrl}
               src={dogImageUrl}
-              alt={`Dog Image ${index + 1}`}
+              alt={`Dog Image`}
               loading="lazy"
             />
           ))}

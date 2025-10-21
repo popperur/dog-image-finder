@@ -27,9 +27,7 @@ describe("ErrorBoundary component", () => {
     );
 
     expect(screen.getByRole("alert")).toBeInTheDocument();
-    expect(
-      screen.getByText("Umm what happened? What the hell happened?!"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("An Error Has Occurred")).toBeInTheDocument();
     expect(screen.getByText(FAILING_TEXT)).toBeInTheDocument();
 
     consoleErrorMock.mockRestore();
