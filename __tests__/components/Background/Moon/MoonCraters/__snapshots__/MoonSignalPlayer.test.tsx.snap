@@ -9,6 +9,7 @@ exports[`MoonSignalPlayer component > snapshot > matches the snapshot 1`] = `
 }
 
 <div
+    aria-describedby="test-id"
     aria-label="toggle music"
     class="c0"
     role="button"

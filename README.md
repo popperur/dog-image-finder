@@ -35,7 +35,7 @@ https://codesandbox.io/p/github/popperur/dog-image-finder/main
 
 ### Tech Stack
 
-- React 18.3
+- React 19.2
 - Typescript 5.2
 - Vite 7.1
 - Ant Design 5.17

@@ -14,23 +14,27 @@ exports[`DogImages component > snapshot > matches the snapshot 1`] = `
     <div
       aria-busy="true"
       aria-live="polite"
-      class="ant-spin ant-spin-lg ant-spin-spinning css-dev-only-do-not-override-1r287do"
+      class="ant-spin ant-spin-lg ant-spin-spinning css-dev-only-do-not-override-ac2jek"
     >
       <span
-        class="ant-spin-dot ant-spin-dot-spin"
+        class="ant-spin-dot-holder"
       >
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
+        <span
+          class="ant-spin-dot ant-spin-dot-spin"
+        >
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+        </span>
       </span>
     </div>
   </div>

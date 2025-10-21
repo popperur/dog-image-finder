@@ -227,6 +227,7 @@ exports[`Moon component > matches the snapshot 1`] = `
           class="c14"
         >
           <div
+            aria-describedby="test-id"
             aria-label="toggle music"
             class="c15"
             role="button"

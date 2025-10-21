@@ -162,6 +162,7 @@ exports[`MoonCraters component > matches the snapshot 1`] = `
       class="c10"
     >
       <div
+        aria-describedby="test-id"
         aria-label="toggle music"
         class="c11"
         role="button"

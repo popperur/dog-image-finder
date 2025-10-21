@@ -973,6 +973,7 @@ exports[`Background component > matches the snapshot 1`] = `
               class="c39"
             >
               <div
+                aria-describedby="test-id"
                 aria-label="toggle music"
                 class="c40"
                 role="button"
