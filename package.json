@@ -19,8 +19,8 @@
   },
   "repository": "https://github.com/popperur/dog-image-finder",
   "dependencies": {
-    "@ant-design/icons": "^5.3.7",
-    "antd": "^5.17.2",
+    "@ant-design/icons": "^6.1.0",
+    "antd": "^5.27.6",
     "axios": "^1.12.2",
     "eslint": "^8.57.0",
     "react": "^18.3.1",
