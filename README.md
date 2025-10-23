@@ -14,6 +14,7 @@ Spooky!
 
 ## Demo
 
+https://main.d1vc5v0vn50mcv.amplifyapp.com/
 https://codesandbox.io/p/github/popperur/dog-image-finder/main
 
 ## Features
